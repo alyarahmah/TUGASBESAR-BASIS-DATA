@@ -97,14 +97,13 @@ $jml_kendaraan = mysqli_num_rows($result_kendaraan);
                     </a>
                     <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                         <li class="sidebar-item">
-                            <a href="total-income.php" class="sidebar-link">Income hari ini</a>
+                            <a href="total-income.php" class="sidebar-link">Total Income</a>
                         </li>
                         <li class="sidebar-item">
                             <a href="history.php" class="sidebar-link">History parkir</a>
                         </li>
                     </ul>
                 </li>
-
 
                 <li class="sidebar-item">
                     <a href="logout.php" class="sidebar-link">
@@ -162,7 +161,7 @@ $jml_kendaraan = mysqli_num_rows($result_kendaraan);
                             <div class="card-body">
                                 <div class="d-flex flex-column align-items-center">
                                     <p class="text-center fs-1"><?php echo $jml_masuk; ?></p>
-                                    <h1 class="text-center card-title mb-3">Total Kendaraan <br> Ter saat ini</h1>
+                                    <h1 class="text-center card-title mb-3">Total Kendaraan <br> Terparkir saat ini</h1>
                                     <img class="img-fluid" src="image/parking.png" alt="">
                                     <H1></H1>
                                 </div>

@@ -51,15 +51,14 @@ $result = mysqli_query($con, $query);
 
     <div class="container mt-2">
 
-    <!-- Formulir Pencarian -->
-    <form class="form-inline mb-4 d-flex" action="kendaraan-masuk.php" method="GET">
-                <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search" name="search" value="<?php echo htmlspecialchars($search_query); ?>">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-        <div class="d-flex justify-content-end py-2">
-            
+        <!-- Formulir Pencarian -->
+        <form class="form-inline mb-3 d-flex align-items-center" action="kendaraan-masuk.php" method="GET">
+            <input class="form-control me-2" type="search" placeholder="Search" autocomplete="off" aria-label="Search" name="search" value="<?php echo htmlspecialchars($search_query); ?>">
+            <button class="btn btn-outline-success me-2" type="submit">Search</button>
             <a class="btn btn-primary" href="tambah-kendaraan.php">Tambah Kendaraan</a>
-        </div>
+        </form>
+
+
 
         <table class="table table-bordered">
             <thead>

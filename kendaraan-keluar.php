@@ -4,6 +4,10 @@ if ( !isset($_SESSION["login"])){
     header('location: index.php');
     exit;
 }
+
+// Setel zona waktu
+date_default_timezone_set('Asia/Jakarta');
+
 require('functions.php');
 
 // Query untuk mengambil data kendaraan yang sudah keluar

@@ -2,6 +2,10 @@
 session_start();
 require('functions.php');
 
+// Setel zona waktu
+date_default_timezone_set('Asia/Jakarta');
+
+
 // Query untuk mengambil data kendaraan keluar
 $query_keluar = "SELECT k.id_kendaraan, k.plat, k.nama_pemilik, k.jenis_kendaraan, k.merk_kendaraan, p.jam_masuk, p.jam_keluar, p.total_bayar, a.nama_admin, k.status
                  FROM kendaraan k

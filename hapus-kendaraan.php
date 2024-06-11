@@ -19,7 +19,7 @@ if (isset($_GET['id_kendaraan'])) {
         // Setelah menghapus entri parkir terkait, lanjutkan dengan menghapus kendaraan
         $query_delete_kendaraan = "DELETE FROM kendaraan WHERE id_kendaraan = $id_kendaraan";
         if (mysqli_query($con, $query_delete_kendaraan)) {
-            echo "Kendaraan berhasil dihapus";
+            echo '<script>alert("Kendaraan berhasil dihapus"); window.location.href = "kendaraan-keluar.php";</script>';
         } else {
             echo "Error: " . $query_delete_kendaraan . "<br>" . mysqli_error($con);
         }

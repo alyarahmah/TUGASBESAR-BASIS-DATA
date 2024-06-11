@@ -1,6 +1,6 @@
 <?php
 session_start();
-if ( !isset($_SESSION["login"])){
+if (!isset($_SESSION["login"])) {
     header('location: index.php');
     exit;
     if (!isset($_SESSION['login']) || !is_admin()) {
@@ -33,10 +33,10 @@ if (isset($_POST["submit"])) {
 
         // Query untuk menambahkan data parkir
         $query_parkir = "INSERT INTO parkir (id_kendaraan, jam_masuk, id_admin)
-                         VALUES ('$id_kendaraan', '$jam_masuk_formatted', '$id_admin')";
+                     VALUES ('$id_kendaraan', '$jam_masuk_formatted', '$id_admin')";
 
         if (mysqli_query($con, $query_parkir)) {
-            echo "Data kendaraan berhasil ditambahkan!";
+            $success = true;
         } else {
             echo "Error: " . $query_parkir . "<br>" . mysqli_error($con);
         }
@@ -48,25 +48,28 @@ if (isset($_POST["submit"])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tambah Kendaraan Masuk</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
+
 <body>
-<div class="home-btn m-2">
+    <div class="home-btn m-2">
         <a class="btn btn-primary mx-auto p-2" href="dashboard.php" role="button"><img src="image/home.png" width="30px"></a>
         <h1 class="text-center mb-4">Tambah Kendaraan</h1>
     </div>
 
-    
+
     <div class="container m-5">
         <form action="" method="POST" class="row g-3">
             <div class="col-md-6">
                 <label for="plat" class="form-label">Plat Nomor</label>
-                <input type="text" class="form-control" id="plat" name="plat" placeholder="EZ 2345 23" required>
+                <input type="text" class="form-control" id="plat" name="plat" placeholder="EZ 2345 23" required oninput="this.value = this.value.toUpperCase()">
             </div>
+
             <div class="col-md-6">
                 <label for="nama_pemilik" class="form-label">Nama Pemilik</label>
                 <input type="text" class="form-control" id="nama_pemilik" name="nama_pemilik" required>
@@ -81,7 +84,7 @@ if (isset($_POST["submit"])) {
             </div>
             <div class="col-md-6">
                 <label for="merk_kendaraan" class="form-label">Merk Kendaraan</label>
-                <input type="text" class="form-control" id="merk_kendaraan" name="merk_kendaraan" required>
+                <input type="text" class="form-control" id="merk_kendaraan" name="merk_kendaraan" required oninput="this.value = this.value.toUpperCase()">
             </div>
             <div class="col-md-6">
                 <label for="jam_masuk" class="form-label">Jam Masuk</label>
@@ -96,6 +99,33 @@ if (isset($_POST["submit"])) {
             </div>
         </form>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="successModalLabel">Berhasil</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Data kendaraan berhasil ditambahkan!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <script src="js/bootstrap.min.js"></script>
+    <script>
+        <?php if ($success) : ?>
+            var successModal = new bootstrap.Modal(document.getElementById('successModal'));
+            successModal.show();
+        <?php endif; ?>
+    </script>
 </body>
+
 </html>

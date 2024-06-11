@@ -54,26 +54,37 @@ if (isset($_POST["login"])) {
     <link rel="stylesheet" href="css2/styleLogin.css">
 </head>
 <body>
-    <div class="form-container">
-        <h1>KERKHOF PARKING <br>MANAGEMENT</h1>
-        <!-- Tampilkan pesan kesalahan jika ada -->
-        <?php if (isset($msg)): ?>
-            <div class="alert alert-danger" role="alert">
-                <?php echo $msg; ?>
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <h1 class="text-center mb-4" style="font-family: 'arial', sans-serif; font-size: 2rem; color: #333;">KERKHOF PARKING MANAGEMENT</h1>
+                    <!-- Tampilkan pesan kesalahan jika ada -->
+                    <?php if (isset($msg)): ?>
+                        <div class="alert alert-danger" role="alert">
+                            <?php echo $msg; ?>
+                        </div>
+                    <?php endif; ?>
+                    <form action="" method="POST">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Masukkan Username" autocomplete="off">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan Password">
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary" name="login">Login</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-        <?php endif; ?>
-        <form action="" method="POST">
-            <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
-                <input type="text" class="form-control" id="username" name="username" placeholder="Masukkan Username">
-            </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan Password">
-            </div>
-            <button type="submit" class="btn btn-primary" name="login">Login</button>
-        </form>
+        </div>
     </div>
+</div>
+
 </body>
 </html>
 
